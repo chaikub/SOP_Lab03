@@ -12,8 +12,13 @@ public class CustomerController {
     private List<Customer> customers = new ArrayList<>();
 
     @RequestMapping(value = "/customers", method = RequestMethod.GET)
-    public List<Customer> getCustomers(){
-        return  customers;
+    public int getCustomers(){
+        customers.add(new Customer("1010","John",true,25));
+        customers.add(new Customer("1018","Peter",true,24));
+        customers.add(new Customer("1019","Sara",false,23));
+        customers.add(new Customer("1110","Rose",false,23));
+        customers.add(new Customer("1001","Emma",false,30));
+        return  customers.size();
     }
     @RequestMapping(value = "/customersbyid/{id}", method = RequestMethod.GET)
     public Customer getCustomerByID (@PathVariable("id") String ID){
@@ -32,11 +37,6 @@ public class CustomerController {
         return  false;
     }
     public boolean addCustomer(String ID, String n, String s, int a){
-        customers.add(new Customer("1010","John",true,25));
-        customers.add(new Customer("1018","Peter",true,24));
-        customers.add(new Customer("1019","Sara",false,23));
-        customers.add(new Customer("1110","Rose",false,23));
-        customers.add(new Customer("1001","Emma",false,30));
         boolean b = false;
         if(s == "Female" ^ s == "female"){
             b = false;
