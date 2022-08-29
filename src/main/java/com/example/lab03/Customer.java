@@ -27,9 +27,7 @@ public class Customer {
         this.name = name;
     }
 
-    public void setSex(boolean sex) {
-        this.sex = sex;
-    }
+    public void setSex(boolean sex) {this.sex = sex;}
 
     public void setAge(int age) {
         this.age = age;
