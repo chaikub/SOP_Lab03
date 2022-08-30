@@ -77,10 +77,13 @@ public class CustomerController {
                                @RequestParam("sex") String s,
                                @RequestParam("age") int a){
         boolean b = false;
-        if(s == "Female" ^ s == "female"){
+        if(s.equals("Female") || s.equals("female")){
             b = false;
-        } else if (s == "Male" ^ s == "male") {
+        } else if (s.equals("Male") || s.equals("male")) {
             b = true;
+        }
+        if(a < 0 ){
+            a = 0;
         }
         customers.add(new Customer(ID,n,b,a));
         return true;
